@@ -1,0 +1,10 @@
+# Directories
+.vscode/
+build/
+tests/*.exe
+*.o
+*.log
+*.txt
+
+# Environment files
+.env
