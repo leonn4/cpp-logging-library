@@ -1,0 +1,27 @@
+name: C++ CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install g++
+        run: sudo apt-get install g++ 
+
+      - name: Build
+        run: |
+          g++ -g src/logger.cpp tests/test_logger.cpp -o tests/test_logger.exe -Iinclude
+
+      - name: Run tests
+        run: ./tests/test_logger.exe
